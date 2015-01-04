@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4606E8CAFAF1B649E150880E /* libPods-kiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B8E4DF23F62A40A5B66E19 /* libPods-kiwi.a */; };
 		B91335A61A58189D0065A8BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91335A51A58189D0065A8BB /* AppDelegate.swift */; };
 		B91335A81A58189D0065A8BB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91335A71A58189D0065A8BB /* FirstViewController.swift */; };
 		B91335AA1A58189D0065A8BB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91335A91A58189D0065A8BB /* SecondViewController.swift */; };
@@ -14,6 +15,9 @@
 		B91335AF1A58189D0065A8BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B91335AE1A58189D0065A8BB /* Images.xcassets */; };
 		B91335B21A58189D0065A8BB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B91335B01A58189D0065A8BB /* LaunchScreen.xib */; };
 		B91335BE1A58189D0065A8BB /* kiwiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91335BD1A58189D0065A8BB /* kiwiTests.swift */; };
+		B921BE2C1A583FAE005AE459 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B921BE2A1A583FAE005AE459 /* Crashlytics.framework */; };
+		B921BE2D1A583FAE005AE459 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B921BE2B1A583FAE005AE459 /* Fabric.framework */; };
+		B970D6471A596524000B09C7 /* BMLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970D6461A596524000B09C7 /* BMLocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31B8213EC8BE92118084D473 /* Pods-kiwi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kiwi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kiwi/Pods-kiwi.debug.xcconfig"; sourceTree = "<group>"; };
 		B91335A01A58189D0065A8BB /* kiwi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kiwi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B91335A41A58189D0065A8BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B91335A51A58189D0065A8BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +43,12 @@
 		B91335B71A58189D0065A8BB /* kiwiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kiwiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B91335BC1A58189D0065A8BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B91335BD1A58189D0065A8BB /* kiwiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kiwiTests.swift; sourceTree = "<group>"; };
+		B91335C71A581C0F0065A8BB /* kiwi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kiwi-Bridging-Header.h"; sourceTree = "<group>"; };
+		B921BE2A1A583FAE005AE459 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		B921BE2B1A583FAE005AE459 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		B970D6461A596524000B09C7 /* BMLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMLocationManager.swift; sourceTree = "<group>"; };
+		B9B8E4DF23F62A40A5B66E19 /* libPods-kiwi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kiwi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCCD869DF738AFF084DA1D40 /* Pods-kiwi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kiwi.release.xcconfig"; path = "Pods/Target Support Files/Pods-kiwi/Pods-kiwi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B921BE2C1A583FAE005AE459 /* Crashlytics.framework in Frameworks */,
+				4606E8CAFAF1B649E150880E /* libPods-kiwi.a in Frameworks */,
+				B921BE2D1A583FAE005AE459 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +72,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17A7E7254C9FE286BC8BA6CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31B8213EC8BE92118084D473 /* Pods-kiwi.debug.xcconfig */,
+				CCCD869DF738AFF084DA1D40 /* Pods-kiwi.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		49F1EA6E4E008A5B106F328C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9B8E4DF23F62A40A5B66E19 /* libPods-kiwi.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B91335971A58189D0065A8BB = {
 			isa = PBXGroup;
 			children = (
 				B91335A21A58189D0065A8BB /* kiwi */,
 				B91335BA1A58189D0065A8BB /* kiwiTests */,
 				B91335A11A58189D0065A8BB /* Products */,
+				17A7E7254C9FE286BC8BA6CE /* Pods */,
+				49F1EA6E4E008A5B106F328C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,12 +113,16 @@
 			isa = PBXGroup;
 			children = (
 				B91335A51A58189D0065A8BB /* AppDelegate.swift */,
+				B970D6461A596524000B09C7 /* BMLocationManager.swift */,
 				B91335A71A58189D0065A8BB /* FirstViewController.swift */,
 				B91335A91A58189D0065A8BB /* SecondViewController.swift */,
 				B91335AB1A58189D0065A8BB /* Main.storyboard */,
 				B91335AE1A58189D0065A8BB /* Images.xcassets */,
 				B91335B01A58189D0065A8BB /* LaunchScreen.xib */,
 				B91335A31A58189D0065A8BB /* Supporting Files */,
+				B91335C71A581C0F0065A8BB /* kiwi-Bridging-Header.h */,
+				B921BE2A1A583FAE005AE459 /* Crashlytics.framework */,
+				B921BE2B1A583FAE005AE459 /* Fabric.framework */,
 			);
 			path = kiwi;
 			sourceTree = "<group>";
@@ -117,14 +154,28 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		B921BE281A583F3A005AE459 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		B913359F1A58189D0065A8BB /* kiwi */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B91335C11A58189D0065A8BB /* Build configuration list for PBXNativeTarget "kiwi" */;
 			buildPhases = (
+				565EBD704D684E280B4DC871 /* Check Pods Manifest.lock */,
 				B913359C1A58189D0065A8BB /* Sources */,
 				B913359D1A58189D0065A8BB /* Frameworks */,
 				B913359E1A58189D0065A8BB /* Resources */,
+				B1D8798DFFB6C99BA0C7238F /* Copy Pods Resources */,
+				B921BE281A583F3A005AE459 /* Headers */,
+				B921BE291A583F3C005AE459 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -210,12 +261,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		565EBD704D684E280B4DC871 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B1D8798DFFB6C99BA0C7238F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kiwi/Pods-kiwi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B921BE291A583F3C005AE459 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run bc6eb673602ede597b84b8042dbc6bdae962e4e2 493ea0cc1777008654e2598d232e6891dc122ecd5ca4635cfa6865f6d310387f";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B913359C1A58189D0065A8BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B91335AA1A58189D0065A8BB /* SecondViewController.swift in Sources */,
+				B970D6471A596524000B09C7 /* BMLocationManager.swift in Sources */,
 				B91335A61A58189D0065A8BB /* AppDelegate.swift in Sources */,
 				B91335A81A58189D0065A8BB /* FirstViewController.swift in Sources */,
 			);
@@ -338,21 +436,36 @@
 		};
 		B91335C21A58189D0065A8BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31B8213EC8BE92118084D473 /* Pods-kiwi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/kiwi",
+				);
 				INFOPLIST_FILE = kiwi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "kiwi/kiwi-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		B91335C31A58189D0065A8BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCCD869DF738AFF084DA1D40 /* Pods-kiwi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/kiwi",
+				);
 				INFOPLIST_FILE = kiwi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "kiwi/kiwi-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -409,6 +522,7 @@
 				B91335C31A58189D0065A8BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B91335C41A58189D0065A8BB /* Build configuration list for PBXNativeTarget "kiwiTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +531,7 @@
 				B91335C61A58189D0065A8BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
