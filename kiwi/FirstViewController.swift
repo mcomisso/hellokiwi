@@ -49,10 +49,12 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
         self.checkIfUserExists()
         
         if (PFUser.currentUser() != nil) {
-            let user = PFUser.currentUser()
+            let user: PFUser = PFUser.currentUser()
+
             self.emailLabel.text = user.email
             
-            if (user["authData"] != nil) {
+            if PFFacebookUtils.isLinkedWithUser(user) {
+            
                 self.nameLabel.text = user.objectForKey("first_name").stringByAppendingString(" ".stringByAppendingString(user.objectForKey("last_name") as String))
                 
                 FBRequestConnection.startForMeWithCompletionHandler({ (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
@@ -65,6 +67,8 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
                         self.avatarImage.layer.cornerRadius = self.avatarImage.bounds.size.width / 2
                     }
                 })
+            } else {
+                self.nameLabel.text = user.objectForKey("username").capitalizedString
             }
         }
     }
@@ -200,6 +204,8 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
         
         alertView.addButton("Esci", actionBlock: { () -> Void in
             PFUser.logOut()
+            self.nameLabel.text = "Welcome"
+            self.avatarImage.image = UIImage(named: "startScreenLogo")
             self.checkIfUserExists()
         })
         
@@ -220,15 +226,15 @@ extension FirstViewController {
     func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
         println("The user successfully logged in")
 
-        if (user["authData"] != nil) {
+        if PFFacebookUtils.isLinkedWithUser(user) {
 
             //Request data from facebook to fill the missing params
             FBRequestConnection.startForMeWithCompletionHandler({ (connection: FBRequestConnection!, response: AnyObject!, error: NSError!) -> Void in
                 if (error == nil) {
                     var userData = response as NSDictionary
-                    var firstName = userData["first_name"] as String
-                    var lastName = userData["last_name"] as String
-                    var email = userData["email"] as String
+                    var firstName = userData["first_name"] as String?
+                    var lastName = userData["last_name"] as String?
+                    var email = userData["email"] as String?
                     
                     println("User Data: \(userData.description)")
                     
