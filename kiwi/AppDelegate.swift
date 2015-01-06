@@ -78,8 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
 //BEACON EXTENSION
@@ -149,37 +147,37 @@ extension AppDelegate: CLLocationManagerDelegate {
             switch closestMinor {
             case 161:
                 let alertBody = "Hai trovato Marco"
-                self.sendLocalNotification(alertBody)
+//                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"marco", "alertBody":alertBody])
 
             case 165:
                 let alertBody = "Hai trovato Edoardo"
-                self.sendLocalNotification(alertBody)
+//                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"edoardo", "alertBody":alertBody])
             
             case 166:
                 let alertBody = "Hai trovato Ennio"
-                self.sendLocalNotification(alertBody)
+//                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"ennio", "alertBody":alertBody])
             
             case 167:
                 let alertBody = "Benvenuto in H-Farm"
-                self.sendLocalNotification(alertBody)
+//                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"hfarm", "alertBody":alertBody])
             
             case 168:
                 let alertBody = "Ti va un caffè?"
-                self.sendLocalNotification(alertBody)
+//                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"serra", "alertBody":alertBody])
             
             case 169:
                 let alertBody = "Le presentazioni saranno svolte qui"
-                self.sendLocalNotification(alertBody)
+//                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"convivium", "alertBody":alertBody])
             
             case 170:
                 let alertBody = "La sede di Life"
-                self.sendLocalNotification(alertBody)
+//                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"life", "alertBody":alertBody])
             
             default:
