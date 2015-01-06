@@ -204,6 +204,7 @@ extension AppDelegate: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, monitoringDidFailForRegion region: CLRegion!, withError error: NSError!) {
         println("FAIL \(error.localizedDescription, error.localizedFailureReason, region.description)")
     }
+    
     func locationManager(manager: CLLocationManager!, rangingBeaconsDidFailForRegion region: CLBeaconRegion!, withError error: NSError!) {
         println("FAIL \(error.localizedDescription, error.localizedFailureReason, region.description)")
     }
