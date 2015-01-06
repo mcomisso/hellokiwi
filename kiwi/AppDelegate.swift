@@ -101,9 +101,11 @@ extension AppDelegate: CLLocationManagerDelegate {
         switch state {
         case CLRegionState.Inside:
             self.locationManager?.startRangingBeaconsInRegion(beaconRegion)
+            self.locationManager?.startMonitoringVisits()
             
         case CLRegionState.Outside:
             self.locationManager?.stopRangingBeaconsInRegion(beaconRegion)
+            self.locationManager?.stopMonitoringVisits()
             
         case CLRegionState.Unknown:
             self.locationManager?.stopRangingBeaconsInRegion(beaconRegion)
