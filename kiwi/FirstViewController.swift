@@ -52,18 +52,20 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
             let user = PFUser.currentUser()
             self.emailLabel.text = user.email
             
-            self.nameLabel.text = user.objectForKey("first_name").stringByAppendingString(" ".stringByAppendingString(user.objectForKey("last_name") as String))
-            
-            FBRequestConnection.startForMeWithCompletionHandler({ (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
-                if (error == nil) {
-                    let facebookId = result.objectForKey("id") as String
-                    let pictureID = "https://graph.facebook.com/".stringByAppendingString(facebookId).stringByAppendingString("/picture?type=large")
-                    self.avatarImage.contentMode = UIViewContentMode.ScaleAspectFit
-                    self.avatarImage.sd_setImageWithURL(NSURL(string: pictureID), placeholderImage: UIImage(named: "kiwiLogo"))
-                    self.avatarImage.clipsToBounds = true
-                    self.avatarImage.layer.cornerRadius = self.avatarImage.bounds.size.width / 2
-                }
-            })
+            if (user["authData"] != nil) {
+                self.nameLabel.text = user.objectForKey("first_name").stringByAppendingString(" ".stringByAppendingString(user.objectForKey("last_name") as String))
+                
+                FBRequestConnection.startForMeWithCompletionHandler({ (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+                    if (error == nil) {
+                        let facebookId = result.objectForKey("id") as String
+                        let pictureID = "https://graph.facebook.com/".stringByAppendingString(facebookId).stringByAppendingString("/picture?type=large")
+                        self.avatarImage.contentMode = UIViewContentMode.ScaleAspectFit
+                        self.avatarImage.sd_setImageWithURL(NSURL(string: pictureID), placeholderImage: UIImage(named: "kiwiLogo"))
+                        self.avatarImage.clipsToBounds = true
+                        self.avatarImage.layer.cornerRadius = self.avatarImage.bounds.size.width / 2
+                    }
+                })
+            }
         }
     }
     
@@ -99,7 +101,7 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
             loginViewController.delegate = self
             
             var signupController = PFSignUpViewController()
-            signupController.fields = PFSignUpFields.Default | PFSignUpFields.Additional
+            signupController.fields = PFSignUpFields.Default
             signupController.signUpView.logo = UIImageView(image: UIImage(named: "kiwiLogo"))
             signupController.signUpView.logo.contentMode = UIViewContentMode.ScaleAspectFit
             signupController.delegate = self
@@ -218,7 +220,7 @@ extension FirstViewController {
     func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
         println("The user successfully logged in")
 
-        if (user.isNew) {
+        if (user["authData"] != nil) {
 
             //Request data from facebook to fill the missing params
             FBRequestConnection.startForMeWithCompletionHandler({ (connection: FBRequestConnection!, response: AnyObject!, error: NSError!) -> Void in
@@ -268,12 +270,11 @@ extension FirstViewController {
     }
     
     func signUpViewController(signUpController: PFSignUpViewController!, shouldBeginSignUp info: [NSObject : AnyObject]!) -> Bool {
-        let additionalInfo = info["additional"] as NSString
         let password = info["password"] as NSString
         let username = info["username"] as NSString
         let email = info["email"] as NSString
         
-        if ((additionalInfo.length == 0) | (email.length == 0) | (username.length == 0) | (password.length == 0)) {
+        if ((email.length == 0) | (username.length == 0) | (password.length == 0)) {
             let alertView = SCLAlertView()
             alertView.backgroundType = SCLAlertViewBackground.Blur
             alertView.showError(self, title: "Attenzione", subTitle: "È richiesto il completamento di ogni campo", closeButtonTitle: "Ok", duration: 0.0)
