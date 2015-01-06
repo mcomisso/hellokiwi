@@ -10,6 +10,10 @@ import UIKit
 
 class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
 
+    //////////////////////////////////////////////////////
+    //MARK: Properties
+    //////////////////////////////////////////////////////
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!
@@ -28,6 +32,9 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     
     var starsFound = [String]()
     
+    //////////////////////////////////////////////////////
+    //MARK:- View Controller methods
+    //////////////////////////////////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNeedsStatusBarAppearanceUpdate()
@@ -64,9 +71,14 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    //MARK:- Personal methods
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    //////////////////////////////////////////////////////
+    //MARK:- Personal Utils
+    //////////////////////////////////////////////////////
     func setupViews() {
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
@@ -74,10 +86,6 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
         self.tabBarController?.tabBar.tintColor = UIColor.whiteColor()
         
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
     }
     
     func checkIfUserExists() {
@@ -156,8 +164,11 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     func setCollectedString() {
         self.collectedStarsLabel.text = "Stelle collezionate: \(self.starsFound.count) di 7"
     }
-    
-    //DELETE ALL DATA IN STANDARDUSERDEFAULTS
+
+    //////////////////////////////////////////////////////
+    //MARK:- Button actions
+    //////////////////////////////////////////////////////
+
     @IBAction func reloadData(sender: AnyObject) {
         let resetAlert = SCLAlertView()
         
@@ -180,9 +191,24 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
         resetAlert.showWarning(self, title: "Attenzione!", subTitle: "Le stelle collezionate verranno ripristinate a 0", closeButtonTitle: "Annulla", duration: 0.0)
     }
     
+    @IBAction func signOut(sender: AnyObject) {
+        let alertView = SCLAlertView()
+        
+        alertView.backgroundType = SCLAlertViewBackground.Blur
+        
+        alertView.addButton("Esci", actionBlock: { () -> Void in
+            PFUser.logOut()
+            self.checkIfUserExists()
+        })
+        
+        alertView.showNotice(self, title: "Logout", subTitle: "Scollegarsi dall'applicazione?", closeButtonTitle: "Annulla", duration: 0.0)
+    }
+    
 }
+//////////////////////////////////////////////////////
+//MARK:- LOGIN DELEGATE METHODS
+//////////////////////////////////////////////////////
 
-// LOGIN DELEGATE METHODS
 extension FirstViewController {
     func logInViewController(logInController: PFLogInViewController!, didFailToLogInWithError error: NSError!) {
         //Print errors
@@ -231,7 +257,9 @@ extension FirstViewController {
     }
 }
 
-// SIGNUP DELEGATE METHODS
+//////////////////////////////////////////////////////
+//MARK:- SIGNUP DELEGATE METHODS
+//////////////////////////////////////////////////////
 extension FirstViewController {
     
     func signUpViewController(signUpController: PFSignUpViewController!, didSignUpUser user: PFUser!) {
@@ -240,12 +268,20 @@ extension FirstViewController {
     }
     
     func signUpViewController(signUpController: PFSignUpViewController!, shouldBeginSignUp info: [NSObject : AnyObject]!) -> Bool {
-        //TODO: Change to a cooler method
+        let additionalInfo = info["additional"] as NSString
+        let password = info["password"] as NSString
+        let username = info["username"] as NSString
+        let email = info["email"] as NSString
+        
+        if ((additionalInfo.length == 0) | (email.length == 0) | (username.length == 0) | (password.length == 0)) {
+            let alertView = SCLAlertView()
+            alertView.backgroundType = SCLAlertViewBackground.Blur
+            alertView.showError(self, title: "Attenzione", subTitle: "È richiesto il completamento di ogni campo", closeButtonTitle: "Ok", duration: 0.0)
+
+            return false
+        }
+        
         return true
-    }
-    
-    func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
-        //Tell the user that is needed
     }
     
     func signUpViewController(signUpController: PFSignUpViewController!, didFailToSignUpWithError error: NSError!) {
