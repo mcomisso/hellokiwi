@@ -12,10 +12,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="nh4-I9-vhW">
-                    <rect key="frame" x="90" y="90" width="300" height="300"/>
+                    <rect key="frame" x="140" y="140" width="200" height="200"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="300" id="X64-7I-ScX"/>
-                        <constraint firstAttribute="height" constant="300" id="rHX-NC-VxN"/>
+                        <constraint firstAttribute="width" constant="200" id="X64-7I-ScX"/>
+                        <constraint firstAttribute="height" constant="200" id="rHX-NC-VxN"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Blue-Mate. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
@@ -25,7 +25,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kiwi" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="398" width="441" height="43"/>
+                    <rect key="frame" x="20" y="348" width="441" height="43"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -54,6 +54,6 @@
         </view>
     </objects>
     <resources>
-        <image name="startScreenLogo" width="300" height="300"/>
+        <image name="startScreenLogo" width="200" height="200"/>
     </resources>
 </document>
