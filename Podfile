@@ -7,8 +7,10 @@ pod 'Parse'
 pod 'ParseUI'
 pod 'ParseFacebookUtils'
 
+#DEV utils
+pod 'Reveal-iOS-SDK'
+
 #UIAnimation / Views
-pod 'pop'
 pod 'SCLAlertView-Objective-C'
 
 #Utils
