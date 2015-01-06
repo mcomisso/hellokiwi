@@ -2,16 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "fascia_hfarm-2.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "10624949_10152644230314573_1837880212741746042_n.jpg"
+      "filename" : "fascia_hfarm.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "fascia_hfarm-1.png"
     }
   ],
   "info" : {
