@@ -1,22 +1,25 @@
 # Uncomment this line to define a global platform for your project
 platform :ios, '8.0'
 
+#################
+## TARGET KIWI ##
+#################
 target 'kiwi' do
-#parse
-pod 'Parse'
-pod 'ParseUI'
-pod 'ParseFacebookUtils'
+  pod 'Parse'
+  pod 'ParseUI'
+  pod 'ParseFacebookUtils'
 
-#DEV utils
-pod 'Reveal-iOS-SDK'
+#pod 'Reveal-iOS-SDK'
 
-#UIAnimation / Views
-pod 'SCLAlertView-Objective-C'
+  pod 'SCLAlertView-Objective-C'
 
-#Utils
-pod 'SDWebImage', '~>3.6'
+  pod 'SDWebImage', '~>3.6'
 end
 
+
+#################
+## TARGET TEST ##
+#################
 target 'kiwiTests' do
 
 end
