@@ -17,14 +17,19 @@ class infoCells: UITableViewCell {
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+
     let dataSource = [
-        ["name":"LIFE interaction",
+        ["id":"111",
+            "name":"LIFE interaction",
             "image":"lifeBackground",
             "description":""],
-        ["name":"H-Farm Ventures",
+        ["id":"222",
+            "name":"H-Farm Ventures",
             "image":"hfarmBackground",
             "description":""],
-        ["name":"Team KiWi - Ex Machina",
+        ["id":"333",
+            "name":"Team KiWi - Ex Machina",
             "image":"kiwiBackground",
             "description":""]
     ]
@@ -32,12 +37,35 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.setupViews()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func setupViews() {
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        self.tabBarController?.tabBar.barTintColor = UIColor.blackColor()
+        self.tabBarController?.tabBar.tintColor = UIColor.whiteColor()
+        
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "details") {
+            let indexPath = self.tableView.indexPathForSelectedRow()
+            var destination = segue.destinationViewController as detailsViewController
+
+            let destinationData = self.dataSource[indexPath!.row] as Dictionary
+            destination.tabID = destinationData["id"] as String!
+            destination.imageName = destinationData["image"] as String!
+            destination.titleName = destinationData["name"] as String!
+        }
+    }
+    
 }
 
 extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
@@ -49,10 +77,6 @@ extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
-
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //Move to the selected "story"
-    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -60,7 +84,7 @@ extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
         let cell: infoCells = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as infoCells
         
         let dataCell = self.dataSource[indexPath.row]
-        
+        cell.backgroundImageView.clipsToBounds = true
         cell.backgroundImageView.image = UIImage(named: dataCell["image"] as String!)
         cell.nameLabel.text = dataCell["name"]?.uppercaseString
         

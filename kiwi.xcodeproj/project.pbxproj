@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4606E8CAFAF1B649E150880E /* libPods-kiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B8E4DF23F62A40A5B66E19 /* libPods-kiwi.a */; };
 		B91335A61A58189D0065A8BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91335A51A58189D0065A8BB /* AppDelegate.swift */; };
 		B91335A81A58189D0065A8BB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91335A71A58189D0065A8BB /* FirstViewController.swift */; };
 		B91335AA1A58189D0065A8BB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91335A91A58189D0065A8BB /* SecondViewController.swift */; };
@@ -17,7 +16,8 @@
 		B91335BE1A58189D0065A8BB /* kiwiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91335BD1A58189D0065A8BB /* kiwiTests.swift */; };
 		B921BE2C1A583FAE005AE459 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B921BE2A1A583FAE005AE459 /* Crashlytics.framework */; };
 		B921BE2D1A583FAE005AE459 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B921BE2B1A583FAE005AE459 /* Fabric.framework */; };
-		B970D6471A596524000B09C7 /* BMLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970D6461A596524000B09C7 /* BMLocationManager.swift */; };
+		B970D6491A59F47E000B09C7 /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970D6481A59F47E000B09C7 /* detailsViewController.swift */; };
+		D36117D9C3233483E5926F6F /* libPods-kiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CD860809DE7F52B11121FE /* libPods-kiwi.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +46,8 @@
 		B91335C71A581C0F0065A8BB /* kiwi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kiwi-Bridging-Header.h"; sourceTree = "<group>"; };
 		B921BE2A1A583FAE005AE459 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		B921BE2B1A583FAE005AE459 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		B970D6461A596524000B09C7 /* BMLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMLocationManager.swift; sourceTree = "<group>"; };
-		B9B8E4DF23F62A40A5B66E19 /* libPods-kiwi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kiwi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B970D6481A59F47E000B09C7 /* detailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
+		C0CD860809DE7F52B11121FE /* libPods-kiwi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kiwi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCCD869DF738AFF084DA1D40 /* Pods-kiwi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kiwi.release.xcconfig"; path = "Pods/Target Support Files/Pods-kiwi/Pods-kiwi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,8 +57,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B921BE2C1A583FAE005AE459 /* Crashlytics.framework in Frameworks */,
-				4606E8CAFAF1B649E150880E /* libPods-kiwi.a in Frameworks */,
 				B921BE2D1A583FAE005AE459 /* Fabric.framework in Frameworks */,
+				D36117D9C3233483E5926F6F /* libPods-kiwi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +84,7 @@
 		49F1EA6E4E008A5B106F328C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B9B8E4DF23F62A40A5B66E19 /* libPods-kiwi.a */,
+				C0CD860809DE7F52B11121FE /* libPods-kiwi.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -113,9 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				B91335A51A58189D0065A8BB /* AppDelegate.swift */,
-				B970D6461A596524000B09C7 /* BMLocationManager.swift */,
 				B91335A71A58189D0065A8BB /* FirstViewController.swift */,
 				B91335A91A58189D0065A8BB /* SecondViewController.swift */,
+				B970D6481A59F47E000B09C7 /* detailsViewController.swift */,
 				B91335AB1A58189D0065A8BB /* Main.storyboard */,
 				B91335AE1A58189D0065A8BB /* Images.xcassets */,
 				B91335B01A58189D0065A8BB /* LaunchScreen.xib */,
@@ -215,6 +215,7 @@
 				TargetAttributes = {
 					B913359F1A58189D0065A8BB = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = B82WJF6RBY;
 					};
 					B91335B61A58189D0065A8BB = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -313,9 +314,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B91335AA1A58189D0065A8BB /* SecondViewController.swift in Sources */,
-				B970D6471A596524000B09C7 /* BMLocationManager.swift in Sources */,
 				B91335A61A58189D0065A8BB /* AppDelegate.swift in Sources */,
 				B91335A81A58189D0065A8BB /* FirstViewController.swift in Sources */,
+				B970D6491A59F47E000B09C7 /* detailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +441,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/kiwi",
@@ -458,6 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/kiwi",

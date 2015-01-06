@@ -11,12 +11,18 @@ PODS:
     - Parse (~> 1.5)
     - ParseFacebookUtils (~> 1.5)
   - pop (1.0.7)
+  - SCLAlertView-Objective-C (0.3.7)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core (= 3.7.1)
+  - SDWebImage/Core (3.7.1)
 
 DEPENDENCIES:
   - Parse
   - ParseFacebookUtils
   - ParseUI
   - pop
+  - SCLAlertView-Objective-C
+  - SDWebImage (~> 3.6)
 
 SPEC CHECKSUMS:
   Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
@@ -25,5 +31,7 @@ SPEC CHECKSUMS:
   ParseFacebookUtils: 7659dcda0fa59f67234ab7ba5a82a9b05073c59a
   ParseUI: 0eed358b238dcd66949ebc22513eba603e110087
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
+  SCLAlertView-Objective-C: 0f05aadaf5388ec44a06a4271e99cd871830246a
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
 
 COCOAPODS: 0.36.0.beta.1
