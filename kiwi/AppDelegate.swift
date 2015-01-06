@@ -43,10 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
         locationManager = CLLocationManager()
         locationManager!.delegate = self
-        if(locationManager!.respondsToSelector("requestAlwaysAuthorization")) {
-            locationManager!.requestAlwaysAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            if(locationManager!.respondsToSelector("requestAlwaysAuthorization")) {
+                locationManager!.requestAlwaysAuthorization()
+            }
         }
-        
         locationManager!.startMonitoringForRegion(beaconRegion)
         
         return true
