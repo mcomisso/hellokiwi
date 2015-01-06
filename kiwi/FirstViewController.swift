@@ -175,8 +175,8 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
             self.hfarmStar.highlighted = false
             self.conviviumStar.highlighted = false
             self.lifeStar.highlighted = false
+            self.setCollectedString()
         })
-        
         resetAlert.showWarning(self, title: "Attenzione!", subTitle: "Le stelle collezionate verranno ripristinate a 0", closeButtonTitle: "Annulla", duration: 0.0)
     }
     
