@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Profilo-->
@@ -17,12 +18,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3v-RY-YSF">
-                                <rect key="frame" x="249" y="208" width="103" height="29"/>
+                                <rect key="frame" x="249" y="200" width="103" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hIF-rU-ZDL" userLabel="profile image">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="hIF-rU-ZDL" userLabel="profile image">
                                 <rect key="frame" x="240" y="72" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="4wP-nA-EeU"/>
@@ -30,8 +31,8 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i tuoi dati appariranno qui" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGt-AS-J8Q">
-                                <rect key="frame" x="202" y="245" width="196" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="216" y="229" width="169" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -63,10 +64,11 @@
                                 <color key="backgroundColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="232" id="FoX-Au-NoI"/>
+                                    <constraint firstAttribute="height" constant="148" id="kVG-Nh-8qV"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stelle collezionate: 0 di 7" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7Y-uW-8xy">
-                                <rect key="frame" x="220" y="370" width="161" height="17"/>
+                                <rect key="frame" x="220" y="378" width="161" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -74,20 +76,24 @@
                         </subviews>
                         <color key="backgroundColor" red="0.011764705882352941" green="0.011764705882352941" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="PGt-AS-J8Q" firstAttribute="top" secondItem="R3v-RY-YSF" secondAttribute="bottom" constant="8" id="3yY-7T-AIB"/>
+                            <constraint firstItem="PGt-AS-J8Q" firstAttribute="top" secondItem="R3v-RY-YSF" secondAttribute="bottom" id="3yY-7T-AIB"/>
                             <constraint firstAttribute="centerX" secondItem="v7Y-uW-8xy" secondAttribute="centerX" constant="-0.5" id="4qJ-Px-5Np"/>
-                            <constraint firstItem="R3v-RY-YSF" firstAttribute="top" secondItem="hIF-rU-ZDL" secondAttribute="bottom" constant="16" id="AnN-aI-c1C"/>
-                            <constraint firstAttribute="centerY" secondItem="v7Y-uW-8xy" secondAttribute="centerY" constant="-78.5" id="Cti-wI-FC9"/>
+                            <constraint firstItem="R3v-RY-YSF" firstAttribute="top" secondItem="hIF-rU-ZDL" secondAttribute="bottom" constant="8" id="AnN-aI-c1C"/>
                             <constraint firstAttribute="centerX" secondItem="hIF-rU-ZDL" secondAttribute="centerX" id="E0e-jO-5fB"/>
                             <constraint firstItem="hIF-rU-ZDL" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="LUv-2A-zBL"/>
                             <constraint firstAttribute="centerX" secondItem="esr-ky-mPx" secondAttribute="centerX" id="RCl-Ix-Csk"/>
-                            <constraint firstItem="esr-ky-mPx" firstAttribute="top" secondItem="v7Y-uW-8xy" secondAttribute="bottom" constant="8" id="WJS-GP-zNt"/>
+                            <constraint firstItem="esr-ky-mPx" firstAttribute="top" secondItem="v7Y-uW-8xy" secondAttribute="bottom" id="WJS-GP-zNt"/>
                             <constraint firstAttribute="centerX" secondItem="R3v-RY-YSF" secondAttribute="centerX" id="bWz-dj-1nN"/>
                             <constraint firstAttribute="centerX" secondItem="PGt-AS-J8Q" secondAttribute="centerX" id="oT4-D0-1Uo"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="esr-ky-mPx" secondAttribute="bottom" constant="8" id="tFe-M4-Rfi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profilo" id="M6q-QQ-fxY">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="gBa-a1-G6m">
+                            <connections>
+                                <action selector="signOut:" destination="9pv-A4-QxB" id="K2v-Qm-d4Z"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="zMh-G8-k9u">
                             <connections>
                                 <action selector="reloadData:" destination="9pv-A4-QxB" id="oyi-k4-iHl"/>
@@ -204,13 +210,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yFM-bl-Jpg">
-                                <rect key="frame" x="0.0" y="64" width="600" height="158"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="158" id="UTv-Pc-8tg"/>
+                                    <constraint firstAttribute="width" secondItem="yFM-bl-Jpg" secondAttribute="height" multiplier="4:1" id="NNl-xX-T3n"/>
+                                    <constraint firstAttribute="height" constant="150" id="UTv-Pc-8tg"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="UTv-Pc-8tg"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h0-wK-GZo">
-                                <rect key="frame" x="16" y="230" width="568" height="313"/>
+                                <rect key="frame" x="16" y="222" width="568" height="321"/>
                                 <color key="backgroundColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -225,7 +237,7 @@
                             <constraint firstItem="yFM-bl-Jpg" firstAttribute="leading" secondItem="dKW-0q-Gsb" secondAttribute="leading" id="BIP-MV-aB1"/>
                             <constraint firstAttribute="trailing" secondItem="1h0-wK-GZo" secondAttribute="trailing" constant="16" id="Elu-0S-evT"/>
                             <constraint firstItem="yFM-bl-Jpg" firstAttribute="top" secondItem="v55-DU-DDq" secondAttribute="bottom" id="Kl1-9d-GPX"/>
-                            <constraint firstItem="1h0-wK-GZo" firstAttribute="top" secondItem="yFM-bl-Jpg" secondAttribute="bottom" constant="8" id="YDG-23-TYB"/>
+                            <constraint firstItem="1h0-wK-GZo" firstAttribute="top" secondItem="yFM-bl-Jpg" secondAttribute="bottom" constant="8" symbolic="YES" id="YDG-23-TYB"/>
                             <constraint firstAttribute="trailing" secondItem="yFM-bl-Jpg" secondAttribute="trailing" id="pJr-eP-RsW"/>
                         </constraints>
                     </view>
@@ -258,11 +270,11 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Informazioni-->
         <scene sceneID="mEj-Ln-qTc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t8I-21-IDa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Informazioni" image="tabInfoIcon" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="efy-zv-Dlz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -277,11 +289,11 @@
             </objects>
             <point key="canvasLocation" x="749" y="360"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Profilo-->
         <scene sceneID="iER-YK-gR4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yQm-57-QnF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="first" systemItem="contacts" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Profilo" image="tabUserIcon" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nGI-iA-yQ5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -304,7 +316,6 @@
         <image name="edo_cl" width="50" height="50"/>
         <image name="ennio_bn" width="50" height="50"/>
         <image name="ennio_cl" width="50" height="50"/>
-        <image name="first" width="30" height="30"/>
         <image name="hfarm_bn" width="50" height="50"/>
         <image name="hfarm_cl" width="50" height="50"/>
         <image name="life_bn" width="50" height="50"/>
@@ -313,5 +324,8 @@
         <image name="marco_cl" width="50" height="50"/>
         <image name="serra_bn" width="50" height="50"/>
         <image name="serra_cl" width="50" height="50"/>
+        <image name="startScreenLogo" width="200" height="200"/>
+        <image name="tabInfoIcon" width="25" height="25"/>
+        <image name="tabUserIcon" width="25" height="25"/>
     </resources>
 </document>
