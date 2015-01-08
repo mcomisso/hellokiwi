@@ -17,6 +17,7 @@
 		B921BE2C1A583FAE005AE459 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B921BE2A1A583FAE005AE459 /* Crashlytics.framework */; };
 		B921BE2D1A583FAE005AE459 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B921BE2B1A583FAE005AE459 /* Fabric.framework */; };
 		B970D6491A59F47E000B09C7 /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970D6481A59F47E000B09C7 /* detailsViewController.swift */; };
+		B9F9EB1C1A5E8985006DE682 /* winner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B9F9EB1B1A5E8985006DE682 /* winner.mp3 */; };
 		D36117D9C3233483E5926F6F /* libPods-kiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CD860809DE7F52B11121FE /* libPods-kiwi.a */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		B921BE2A1A583FAE005AE459 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		B921BE2B1A583FAE005AE459 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		B970D6481A59F47E000B09C7 /* detailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
+		B9F9EB1B1A5E8985006DE682 /* winner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winner.mp3; sourceTree = "<group>"; };
 		C0CD860809DE7F52B11121FE /* libPods-kiwi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kiwi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCCD869DF738AFF084DA1D40 /* Pods-kiwi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kiwi.release.xcconfig"; path = "Pods/Target Support Files/Pods-kiwi/Pods-kiwi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +114,7 @@
 		B91335A21A58189D0065A8BB /* kiwi */ = {
 			isa = PBXGroup;
 			children = (
+				B9F9EB1B1A5E8985006DE682 /* winner.mp3 */,
 				B91335A51A58189D0065A8BB /* AppDelegate.swift */,
 				B91335A71A58189D0065A8BB /* FirstViewController.swift */,
 				B91335A91A58189D0065A8BB /* SecondViewController.swift */,
@@ -250,6 +253,7 @@
 				B91335AD1A58189D0065A8BB /* Main.storyboard in Resources */,
 				B91335B21A58189D0065A8BB /* LaunchScreen.xib in Resources */,
 				B91335AF1A58189D0065A8BB /* Images.xcassets in Resources */,
+				B9F9EB1C1A5E8985006DE682 /* winner.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -428,7 +432,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -452,6 +456,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "kiwi/kiwi-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -471,6 +476,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "kiwi/kiwi-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
