@@ -8,12 +8,20 @@
 
 import UIKit
 
+//////////////////////////////////////////////////////
+//MARK:- Cell class
+//////////////////////////////////////////////////////
+
 class infoCells: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
 }
+
+//////////////////////////////////////////////////////
+//MARK:- ViewController class
+//////////////////////////////////////////////////////
 
 class SecondViewController: UIViewController {
 
@@ -22,16 +30,13 @@ class SecondViewController: UIViewController {
     let dataSource = [
         ["id":"111",
             "name":"LIFE interaction",
-            "image":"lifeBackground",
-            "description":""],
+            "image":"lifeBackground"],
         ["id":"222",
             "name":"H-Farm Ventures",
-            "image":"hfarmBackground",
-            "description":""],
+            "image":"hfarmBackground"],
         ["id":"333",
             "name":"Team KiWi - Ex Machina",
-            "image":"kiwiBackground",
-            "description":""]
+            "image":"kiwiBackground"]
     ]
     
     override func viewDidLoad() {
@@ -67,6 +72,10 @@ class SecondViewController: UIViewController {
     }
     
 }
+
+//////////////////////////////////////////////////////
+//MARK:- UITableViewDataSource | UITableViewDelegate METHODS
+//////////////////////////////////////////////////////
 
 extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
     

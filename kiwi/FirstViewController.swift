@@ -248,6 +248,7 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
 //////////////////////////////////////////////////////
 //MARK:- LOGIN DELEGATE METHODS
 //////////////////////////////////////////////////////
+
 extension FirstViewController {
     func logInViewController(logInController: PFLogInViewController!, didFailToLogInWithError error: NSError!) {
         //Print errors
