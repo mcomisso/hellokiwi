@@ -29,10 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         Parse.setApplicationId(applicationID, clientKey: clientKey)
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         PFFacebookUtils.initializeFacebook()
-
-        if((UIDevice.currentDevice().systemVersion as NSString).floatValue >= 8.0) {
-            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
-        }
         
         //MARK:- CoreLocation
         let uuidString = "96A1736B-11FC-85C3-1762-80DF658F0B29"
