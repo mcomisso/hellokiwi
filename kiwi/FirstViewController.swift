@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
+class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, AVAudioPlayerDelegate {
 
     //////////////////////////////////////////////////////
     //MARK: Properties
@@ -29,8 +30,10 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     @IBOutlet weak var edoStar: UIImageView!
     @IBOutlet weak var marcoStar: UIImageView!
     @IBOutlet weak var ennioStar: UIImageView!
-    
+
+    // class variables
     var starsFound = [String]()
+    var audioPlayer: AVAudioPlayer?
     
     //////////////////////////////////////////////////////
     //MARK:- View Controller methods
@@ -168,6 +171,36 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     
     func setCollectedString() {
         self.collectedStarsLabel.text = "Stelle collezionate: \(self.starsFound.count) di 7"
+        if (self.starsFound.count == 7) {
+            
+            let audioSession = AVAudioSession.sharedInstance()
+            let path = NSBundle.mainBundle().pathForResource("winner", ofType: "mp3")
+            let error = NSErrorPointer()
+            
+            self.audioPlayer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: path!), error: error)
+            
+            audioSession.setCategory(AVAudioSessionCategoryPlayback, error: nil)
+
+            if (error == nil) {
+                self.audioPlayer!.delegate = self
+                self.audioPlayer!.prepareToPlay()
+                self.audioPlayer!.play()
+            } else {
+                println("\(error.debugDescription)")
+            }
+
+            // SCLAlertView show alert
+            let winnerAlert = SCLAlertView()
+            winnerAlert.showAnimationType = .SlideInFromCenter
+
+            winnerAlert.addButton("Si", actionBlock: { () -> Void in
+                let shareString = "Ho visitato tutti i punti di interesse! #KiwiappKiwi"
+                let shareView = UIActivityViewController(activityItems: [shareString], applicationActivities: nil)
+                self.presentViewController(shareView, animated: true, completion: nil)
+            })
+            
+            winnerAlert.showCustom(self, image: UIImage(named: "winner"), color: UIColor(red: 0.878431373, green: 0.529411765, blue: 0.019607843, alpha: 1), title: "Completato!", subTitle: "Congratulazioni, hai visitato tutti i punti di interesse! Vuoi condividerlo?", closeButtonTitle: "No", duration: 0.0)
+        }
     }
 
     //////////////////////////////////////////////////////
