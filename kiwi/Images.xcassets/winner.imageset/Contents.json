@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "star_conv_clr.png"
+      "filename" : "winner@1x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "star_conv_clr@2x.png"
+      "filename" : "winner@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "star_conv_clr@3x.png"
+      "filename" : "winner@3x.png"
     }
   ],
   "info" : {

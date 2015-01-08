@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "star_hfarm_clr.png"
+      "filename" : "star_farm_clr.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "star_hfarm_clr@2x.png"
+      "filename" : "star_farm_clr@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "star_hfarm_clr@3x.png"
+      "filename" : "star_farm_clr@3x.png"
     }
   ],
   "info" : {
