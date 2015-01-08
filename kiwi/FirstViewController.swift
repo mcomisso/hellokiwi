@@ -42,7 +42,6 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
         self.addBeaconsObservers()
 
         self.setupViews()
-
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -132,30 +131,30 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
             starsFound.append(foundPOI)
             let alert = SCLAlertView()
             
-            alert.backgroundType = SCLAlertViewBackground.Blur
+            alert.backgroundType = .Blur
             
             switch foundPOI {
             case "edoardo":
                 edoStar.highlighted = true
-                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "", closeButtonTitle: "OK", duration: 0.0)
+                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "Designer and project manager", closeButtonTitle: "Ok", duration: 0.0)
             case "marco":
                 marcoStar.highlighted = true
-                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "Designed designer", closeButtonTitle: "OK", duration: 0.0)
+                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "The designed designer", closeButtonTitle: "Ok", duration: 0.0)
             case "ennio":
                 ennioStar.highlighted = true
-                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "Marketing? No problem", closeButtonTitle: "OK", duration: 0.0)
+                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "Marketing? No problem", closeButtonTitle: "Ok", duration: 0.0)
             case "serra":
                 serraStar.highlighted = true
-                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "Ti va un caffè?", closeButtonTitle: "OK", duration: 0.0)
+                alert.showSuccess(self, title: "La \(foundPOI.capitalizedString)", subTitle: "Ti va un caffè?", closeButtonTitle: "Ok", duration: 0.0)
             case "convivium":
                 conviviumStar.highlighted = true
-                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "", closeButtonTitle: "OK", duration: 0.0)
+                alert.showSuccess(self, title: "Il \(foundPOI.capitalizedString)", subTitle: "Le presentazioni verranno svolte qui!", closeButtonTitle: "Ok", duration: 0.0)
             case "hfarm":
                 hfarmStar.highlighted = true
-                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "", closeButtonTitle: "OK", duration: 0.0)
+                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "Benvenuto in H-Farm", closeButtonTitle: "Ok", duration: 0.0)
             case "life":
                 lifeStar.highlighted = true
-                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "", closeButtonTitle: "OK", duration: 0.0)
+                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "Benvenuto in Life", closeButtonTitle: "Ok", duration: 0.0)
             default:
                 println("That's not the right beacon")
             }
@@ -178,7 +177,7 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     @IBAction func reloadData(sender: AnyObject) {
         let resetAlert = SCLAlertView()
         
-        resetAlert.backgroundType = SCLAlertViewBackground.Blur
+        resetAlert.backgroundType = .Blur
 
         resetAlert.addButton("Cancella", actionBlock: { () -> Void in
             self.starsFound.removeAll(keepCapacity: false)
@@ -200,7 +199,7 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     @IBAction func signOut(sender: AnyObject) {
         let alertView = SCLAlertView()
         
-        alertView.backgroundType = SCLAlertViewBackground.Blur
+        alertView.backgroundType = .Blur
         
         alertView.addButton("Esci", actionBlock: { () -> Void in
             PFUser.logOut()
@@ -216,7 +215,6 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
 //////////////////////////////////////////////////////
 //MARK:- LOGIN DELEGATE METHODS
 //////////////////////////////////////////////////////
-
 extension FirstViewController {
     func logInViewController(logInController: PFLogInViewController!, didFailToLogInWithError error: NSError!) {
         //Print errors
@@ -260,7 +258,7 @@ extension FirstViewController {
 
         //AlertView
         let alertView = SCLAlertView()
-        alertView.backgroundType = SCLAlertViewBackground.Blur
+        alertView.backgroundType = .Blur
         alertView.showError(self, title: "Attenzione", subTitle: "È richiesta una registrazione per il corretto funzionamento di questa applicazione.", closeButtonTitle: "Ok", duration: 0.0)
     }
 }
@@ -282,7 +280,7 @@ extension FirstViewController {
         
         if ((email.length == 0) | (username.length == 0) | (password.length == 0)) {
             let alertView = SCLAlertView()
-            alertView.backgroundType = SCLAlertViewBackground.Blur
+            alertView.backgroundType = .Blur
             alertView.showError(self, title: "Attenzione", subTitle: "È richiesto il completamento di ogni campo", closeButtonTitle: "Ok", duration: 0.0)
 
             return false
