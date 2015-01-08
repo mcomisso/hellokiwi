@@ -141,49 +141,55 @@ extension AppDelegate: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: [AnyObject]!, inRegion region: CLBeaconRegion!) {
         var closestBeacon: CLBeacon?
         
-        let knownBeacons = beacons.filter{$0.proximity != CLProximity.Unknown && $0.proximity != CLProximity.Far}
+        let knownBeacons = beacons.filter{$0.proximity != CLProximity.Unknown}
         
         if (knownBeacons.count > 0) {
             closestBeacon = beacons.first as? CLBeacon
-            println("ClosestBeacon \(closestBeacon?.description)")
-            let closestMinor = closestBeacon?.minor as Int
-            
-            switch closestMinor {
-            case 161:
+//            println("ClosestBeacon \(closestBeacon?.description)")
+            let closestTupleMajMin = (closestBeacon?.major as Int, closestBeacon?.minor as Int)
+            switch closestTupleMajMin {
+            case (158, 23524):
+                //major:158, minor:23524
                 let alertBody = "Hai trovato Marco"
 //                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"marco", "alertBody":alertBody])
 
-            case 165:
+            case (150, 47059):
+                //major:150, minor:47059
                 let alertBody = "Hai trovato Edoardo"
 //                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"edoardo", "alertBody":alertBody])
             
-            case 166:
+            case (406, 65259):
+                //major:406, minor:65259
                 let alertBody = "Hai trovato Ennio"
 //                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"ennio", "alertBody":alertBody])
             
-            case 167:
+            case (333, 24796):
+                //major:333, minor:24796
                 let alertBody = "Benvenuto in H-Farm"
 //                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"hfarm", "alertBody":alertBody])
             
-            case 168:
+            case (126, 43175):
+                //major:126, minor:43175
                 let alertBody = "Ti va un caffè?"
 //                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"serra", "alertBody":alertBody])
             
-            case 169:
+            case (401, 15780):
+                //major:401, minor:15780
                 let alertBody = "Le presentazioni saranno svolte qui"
 //                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"convivium", "alertBody":alertBody])
             
-            case 170:
+            case (189, 41487):
+                //major:189, minor:41487
                 let alertBody = "La sede di Life"
 //                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"life", "alertBody":alertBody])
-            
+                
             default:
                 println("Not the correct beacon")
             }
