@@ -44,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 locationManager!.requestAlwaysAuthorization()
             }
         }
-        locationManager!.startMonitoringForRegion(beaconRegion)
         
         return true
     }
@@ -84,12 +83,16 @@ extension AppDelegate: CLLocationManagerDelegate {
         switch status {
         case CLAuthorizationStatus.Authorized:
             locationManager!.startMonitoringForRegion(beaconRegion)
-
+            
         case CLAuthorizationStatus.NotDetermined, CLAuthorizationStatus.Denied:
             println("not determined or denied")
             
-        default:
-            println("default case")
+        case CLAuthorizationStatus.AuthorizedWhenInUse:
+            println("CLAuthorizationStatus.AuthorizedWhenInUse")
+            locationManager!.startMonitoringForRegion(beaconRegion)
+            
+        case CLAuthorizationStatus.Restricted:
+            println("CLAuthorizationStatus.Restricted")
         }
     }
     
@@ -105,7 +108,9 @@ extension AppDelegate: CLLocationManagerDelegate {
             self.locationManager?.stopMonitoringVisits()
             
         case CLRegionState.Unknown:
+            self.locationManager?.stopMonitoringForRegion(beaconRegion)
             self.locationManager?.stopRangingBeaconsInRegion(beaconRegion)
+            
             self.locationManager?.startMonitoringForRegion(beaconRegion)
             self.locationManager?.startMonitoringVisits()
 
