@@ -180,7 +180,7 @@ extension AppDelegate: CLLocationManagerDelegate {
 //                self.sendLocalNotification(alertBody)
                 NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"ennio", "alertBody":alertBody])
             
-            case (333, 24796):
+            case (333, 24796), (14, 32380):
                 //major:333, minor:24796
                 let alertBody = "Benvenuto in H-Farm"
 //                self.sendLocalNotification(alertBody)
