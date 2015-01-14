@@ -23,7 +23,7 @@ class infoCells: UITableViewCell {
 //MARK:- ViewController class
 //////////////////////////////////////////////////////
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, BWWalkthroughViewControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -70,7 +70,35 @@ class SecondViewController: UIViewController {
             destination.titleName = destinationData["name"] as String!
         }
     }
+}
+
+//////////////////////////////////////////////////////
+//MARK:- BWWalkthroughViewControllerDelegate METHODS
+//////////////////////////////////////////////////////
+
+extension SecondViewController: BWWalkthroughViewControllerDelegate {
     
+    @IBAction func showWalkthrough(sender: AnyObject) {
+        let stb = UIStoryboard(name:"WT", bundle: nil)
+        
+        let walkthrough = stb.instantiateViewControllerWithIdentifier("master") as BWWalkthroughViewController
+        let page1 = stb.instantiateViewControllerWithIdentifier("page1") as UIViewController
+        let page2 = stb.instantiateViewControllerWithIdentifier("page2") as UIViewController
+
+        walkthrough.delegate = self
+        walkthrough.addViewController(page1)
+        walkthrough.addViewController(page2)
+        
+        self.presentViewController(walkthrough, animated: true, completion: nil)
+    }
+    
+    func walkthroughCloseButtonPressed() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func walkthroughPageDidChange(pageNumber: Int) {
+        println("Current page\(pageNumber)")
+    }
 }
 
 //////////////////////////////////////////////////////
