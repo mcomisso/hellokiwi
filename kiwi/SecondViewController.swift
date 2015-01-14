@@ -84,10 +84,12 @@ extension SecondViewController: BWWalkthroughViewControllerDelegate {
         let walkthrough = stb.instantiateViewControllerWithIdentifier("master") as BWWalkthroughViewController
         let page1 = stb.instantiateViewControllerWithIdentifier("page1") as UIViewController
         let page2 = stb.instantiateViewControllerWithIdentifier("page2") as UIViewController
-
+        let page3 = stb.instantiateViewControllerWithIdentifier("page3") as UIViewController
+        
         walkthrough.delegate = self
         walkthrough.addViewController(page1)
         walkthrough.addViewController(page2)
+        walkthrough.addViewController(page3)
         
         self.presentViewController(walkthrough, animated: true, completion: nil)
     }
