@@ -17,6 +17,9 @@
 		B921BE2C1A583FAE005AE459 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B921BE2A1A583FAE005AE459 /* Crashlytics.framework */; };
 		B921BE2D1A583FAE005AE459 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B921BE2B1A583FAE005AE459 /* Fabric.framework */; };
 		B970D6491A59F47E000B09C7 /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970D6481A59F47E000B09C7 /* detailsViewController.swift */; };
+		B98C8EAA1A65E844000B300D /* BWWalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C8EA81A65E844000B300D /* BWWalkthroughPageViewController.swift */; };
+		B98C8EAB1A65E844000B300D /* BWWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C8EA91A65E844000B300D /* BWWalkthroughViewController.swift */; };
+		B98C8EAF1A65EB15000B300D /* WT.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98C8EAE1A65EB15000B300D /* WT.storyboard */; };
 		B9F9EB1C1A5E8985006DE682 /* winner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B9F9EB1B1A5E8985006DE682 /* winner.mp3 */; };
 		D36117D9C3233483E5926F6F /* libPods-kiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CD860809DE7F52B11121FE /* libPods-kiwi.a */; };
 /* End PBXBuildFile section */
@@ -48,6 +51,9 @@
 		B921BE2A1A583FAE005AE459 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		B921BE2B1A583FAE005AE459 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		B970D6481A59F47E000B09C7 /* detailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
+		B98C8EA81A65E844000B300D /* BWWalkthroughPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BWWalkthroughPageViewController.swift; path = kiwi/BWWalkthroughPageViewController.swift; sourceTree = SOURCE_ROOT; };
+		B98C8EA91A65E844000B300D /* BWWalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BWWalkthroughViewController.swift; path = kiwi/BWWalkthroughViewController.swift; sourceTree = SOURCE_ROOT; };
+		B98C8EAE1A65EB15000B300D /* WT.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WT.storyboard; sourceTree = "<group>"; };
 		B9F9EB1B1A5E8985006DE682 /* winner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winner.mp3; sourceTree = "<group>"; };
 		C0CD860809DE7F52B11121FE /* libPods-kiwi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kiwi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCCD869DF738AFF084DA1D40 /* Pods-kiwi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kiwi.release.xcconfig"; path = "Pods/Target Support Files/Pods-kiwi/Pods-kiwi.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,12 +120,14 @@
 		B91335A21A58189D0065A8BB /* kiwi */ = {
 			isa = PBXGroup;
 			children = (
+				B98C8EA71A65E837000B300D /* External libraries */,
 				B9F9EB1B1A5E8985006DE682 /* winner.mp3 */,
 				B91335A51A58189D0065A8BB /* AppDelegate.swift */,
 				B91335A71A58189D0065A8BB /* FirstViewController.swift */,
 				B91335A91A58189D0065A8BB /* SecondViewController.swift */,
 				B970D6481A59F47E000B09C7 /* detailsViewController.swift */,
 				B91335AB1A58189D0065A8BB /* Main.storyboard */,
+				B98C8EAE1A65EB15000B300D /* WT.storyboard */,
 				B91335AE1A58189D0065A8BB /* Images.xcassets */,
 				B91335B01A58189D0065A8BB /* LaunchScreen.xib */,
 				B91335A31A58189D0065A8BB /* Supporting Files */,
@@ -153,6 +161,15 @@
 				B91335BC1A58189D0065A8BB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B98C8EA71A65E837000B300D /* External libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B98C8EA81A65E844000B300D /* BWWalkthroughPageViewController.swift */,
+				B98C8EA91A65E844000B300D /* BWWalkthroughViewController.swift */,
+			);
+			name = "External libraries";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +269,7 @@
 			files = (
 				B91335AD1A58189D0065A8BB /* Main.storyboard in Resources */,
 				B91335B21A58189D0065A8BB /* LaunchScreen.xib in Resources */,
+				B98C8EAF1A65EB15000B300D /* WT.storyboard in Resources */,
 				B91335AF1A58189D0065A8BB /* Images.xcassets in Resources */,
 				B9F9EB1C1A5E8985006DE682 /* winner.mp3 in Resources */,
 			);
@@ -319,8 +337,10 @@
 			files = (
 				B91335AA1A58189D0065A8BB /* SecondViewController.swift in Sources */,
 				B91335A61A58189D0065A8BB /* AppDelegate.swift in Sources */,
+				B98C8EAB1A65E844000B300D /* BWWalkthroughViewController.swift in Sources */,
 				B91335A81A58189D0065A8BB /* FirstViewController.swift in Sources */,
 				B970D6491A59F47E000B09C7 /* detailsViewController.swift in Sources */,
+				B98C8EAA1A65E844000B300D /* BWWalkthroughPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

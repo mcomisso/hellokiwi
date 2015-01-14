@@ -118,6 +118,35 @@
             </objects>
             <point key="canvasLocation" x="1561" y="-320"/>
         </scene>
+        <!--Walkthrough View Controller-->
+        <scene sceneID="l8S-uW-dSY">
+            <objects>
+                <viewController storyboardIdentifier="BWmaster" id="3wp-ei-6qW" customClass="BWWalkthroughViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NyA-Ov-W8C"/>
+                        <viewControllerLayoutGuide type="bottom" id="eXL-Nb-XzW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2wc-9d-ZOX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bmi-VS-xLD">
+                                <rect key="frame" x="292" y="515" width="39" height="37"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLT-pd-Kdg">
+                                <rect key="frame" x="486" y="522" width="31" height="30"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.22976603835978837" green="0.22976603835978837" blue="0.22976603835978837" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jrv-cd-E8X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="-992"/>
+        </scene>
         <!--Info-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
@@ -188,7 +217,13 @@
                             <constraint firstAttribute="trailing" secondItem="uDc-Zk-0ZL" secondAttribute="trailing" id="pzq-g9-mI1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Info" id="SnJ-Gv-6Dm"/>
+                    <navigationItem key="navigationItem" title="Info" id="SnJ-Gv-6Dm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="3LK-lm-lHz">
+                            <connections>
+                                <action selector="showWalkthrough:" destination="8rJ-Kc-sve" id="k4f-Wn-i0A"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="uDc-Zk-0ZL" id="nUP-aN-LCy"/>
                     </connections>
@@ -288,6 +323,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZhP-n6-FZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749" y="360"/>
+        </scene>
+        <!--Walkthrough Page View Controller-->
+        <scene sceneID="ZFJ-qz-OFj">
+            <objects>
+                <viewController storyboardIdentifier="BWPage1" id="QoW-Gy-JDM" customClass="BWWalkthroughPageViewController" customModule="kiwi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FAh-3f-Bmm"/>
+                        <viewControllerLayoutGuide type="bottom" id="X2H-99-1vX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W1S-CI-sMM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ris-tt-P08" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="-992"/>
+        </scene>
+        <!--Walkthrough Page View Controller-->
+        <scene sceneID="Cxu-Ug-6Ru">
+            <objects>
+                <viewController storyboardIdentifier="BWPage2" id="sTS-tr-OyF" customClass="BWWalkthroughPageViewController" customModule="kiwi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XCW-wM-DQ4"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Kb-qR-fZ3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ol0-ST-IW4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fKj-nD-3Yg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1561" y="-992"/>
+        </scene>
+        <!--Walkthrough Page View Controller-->
+        <scene sceneID="qjN-et-GUK">
+            <objects>
+                <viewController storyboardIdentifier="BWPage3" id="KXA-C5-nMo" customClass="BWWalkthroughPageViewController" customModule="kiwi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SjZ-Yl-vPy"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mb8-PJ-QoJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lJk-Kb-RyJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xC9-Wr-XfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2370" y="-992"/>
         </scene>
         <!--Profilo-->
         <scene sceneID="iER-YK-gR4">
