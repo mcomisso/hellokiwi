@@ -30,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         PFFacebookUtils.initializeFacebook()
         
+        //Register for notifications
+        if((UIDevice.currentDevice().systemVersion as NSString).floatValue >= 8.0) {
+            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
+        }
+        
         //MARK:- CoreLocation
         let uuidString = "96A1736B-11FC-85C3-1762-80DF658F0B29"
         let beaconIdentifier = "com.kiwi.beaconRegion"
