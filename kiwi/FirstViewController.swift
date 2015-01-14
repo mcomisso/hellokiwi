@@ -139,7 +139,7 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
             switch foundPOI {
             case "edoardo":
                 edoStar.highlighted = true
-                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "Designer and project manager", closeButtonTitle: "Ok", duration: 0.0)
+                alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "From designer to the signer", closeButtonTitle: "Ok", duration: 0.0)
             case "marco":
                 marcoStar.highlighted = true
                 alert.showSuccess(self, title: "\(foundPOI.capitalizedString)", subTitle: "The designed designer", closeButtonTitle: "Ok", duration: 0.0)
