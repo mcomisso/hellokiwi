@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, AVAudioPlayerDelegate {
+class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, AVAudioPlayerDelegate, BWWalkthroughViewControllerDelegate {
 
     //////////////////////////////////////////////////////
     //MARK: Properties
@@ -51,28 +51,40 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
         self.checkIfUserExists()
         
         if (PFUser.currentUser() != nil) {
-            let user: PFUser = PFUser.currentUser()
+            
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            
+            if !userDefaults.boolForKey("wtPresented") {
 
-            self.emailLabel.text = user.email
-            
-            if PFFacebookUtils.isLinkedWithUser(user) {
-            
-                self.nameLabel.text = user.objectForKey("first_name").stringByAppendingString(" ".stringByAppendingString(user.objectForKey("last_name") as String))
+                showWalkthrough()
                 
-                FBRequestConnection.startForMeWithCompletionHandler({ (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
-                    if (error == nil) {
-                        let facebookId = result.objectForKey("id") as String
-                        let pictureID = "https://graph.facebook.com/".stringByAppendingString(facebookId).stringByAppendingString("/picture?type=large")
-                        self.avatarImage.contentMode = UIViewContentMode.ScaleAspectFit
-                        self.avatarImage.sd_setImageWithURL(NSURL(string: pictureID), placeholderImage: UIImage(named: "kiwiLogo"))
-                        self.avatarImage.clipsToBounds = true
-                        self.avatarImage.layer.cornerRadius = self.avatarImage.bounds.size.width / 2
-                    }
-                })
+                userDefaults.setBool(true, forKey: "wtPresented")
+                userDefaults.synchronize()
             } else {
-                self.nameLabel.text = user.objectForKey("username").capitalizedString
+                
+                let user: PFUser = PFUser.currentUser()
+                self.emailLabel.text = user.email
+                
+                if PFFacebookUtils.isLinkedWithUser(user) {
+                
+                    self.nameLabel.text = user.objectForKey("first_name").stringByAppendingString(" ".stringByAppendingString(user.objectForKey("last_name") as String))
+                    
+                    FBRequestConnection.startForMeWithCompletionHandler({ (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+                        if (error == nil) {
+                            let facebookId = result.objectForKey("id") as String
+                            let pictureID = "https://graph.facebook.com/".stringByAppendingString(facebookId).stringByAppendingString("/picture?type=large")
+                            self.avatarImage.contentMode = UIViewContentMode.ScaleAspectFit
+                            self.avatarImage.sd_setImageWithURL(NSURL(string: pictureID), placeholderImage: UIImage(named: "kiwiLogo"))
+                            self.avatarImage.clipsToBounds = true
+                            self.avatarImage.layer.cornerRadius = self.avatarImage.bounds.size.width / 2
+                        }
+                    })
+                } else {
+                    self.nameLabel.text = user.objectForKey("username").capitalizedString
+                }
             }
         }
+    
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,6 +94,27 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+    
+    //////////////////////////////////////////////////////
+    //MARK:- Personal Utils
+    //////////////////////////////////////////////////////
+    func showWalkthrough() {
+        let stb = UIStoryboard(name:"WT", bundle: nil)
+        
+        let walkthrough = stb.instantiateViewControllerWithIdentifier("master") as BWWalkthroughViewController
+        let page1 = stb.instantiateViewControllerWithIdentifier("page1") as UIViewController
+        let page2 = stb.instantiateViewControllerWithIdentifier("page2") as UIViewController
+        
+        walkthrough.delegate = self
+        walkthrough.addViewController(page1)
+        walkthrough.addViewController(page2)
+        
+        self.presentViewController(walkthrough, animated: true, completion: nil)
+    }
+
+    func walkthroughCloseButtonPressed() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     //////////////////////////////////////////////////////
