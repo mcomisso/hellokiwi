@@ -10,14 +10,16 @@ import UIKit
 import Fabric
 import Crashlytics
 import CoreLocation
+import CoreBluetooth
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate, CBCentralManagerDelegate {
 
     var window: UIWindow?
     var locationManager: CLLocationManager?
     var beaconRegion: CLBeaconRegion?
-
+    var bluetoothManager: CBCentralManager?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -49,6 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 locationManager!.requestAlwaysAuthorization()
             }
         }
+
+        let options = ["CBCentralManagerOptionShowPowerAlertKey":"false"]
+        bluetoothManager = CBCentralManager(delegate: self, queue: dispatch_get_main_queue(), options: options)
+        self.centralManagerDidUpdateState(bluetoothManager)
         
         return true
     }
@@ -220,5 +226,29 @@ extension AppDelegate: CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, rangingBeaconsDidFailForRegion region: CLBeaconRegion!, withError error: NSError!) {
         println("FAIL \(error.localizedDescription, error.localizedFailureReason, region.description)")
+    }
+}
+
+extension AppDelegate: CBCentralManagerDelegate {
+    
+    func centralManagerDidUpdateState(central: CBCentralManager!) {
+        var state = ""
+
+        switch central.state {
+        case .PoweredOff:
+            state = "PoweredOff"
+        case .PoweredOn:
+            state = "Powered On"
+        case .Resetting:
+            state = "Resetting"
+        case .Unauthorized:
+            state = "Unauthorized"
+        case .Unsupported:
+            state = "Unsupported"
+        case .Unknown:
+            state = "Unknown"
+        }
+
+        println("The state of bluetooth is \(state)")
     }
 }
