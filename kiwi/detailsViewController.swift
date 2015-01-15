@@ -21,7 +21,7 @@ class detailsViewController: UIViewController {
 
         "444":"Dicono che le grandi idee, arrivino dalla pancia e si concretizzino davanti ad una tavola imbandita.\nMeglio ancora se imbandita con dell’ottimo cibo fatto al momento e su quello la serra è imbattibile, ci coccola ogni giorno con spuntini che farebbero invidia alle grandi cucine stellate del mondo.\n\nLa serra è il cuore dinamico di H-FARM: dalle prime luci del giorno è sempre popolato dalla community di oltre 400 tra giovani imprenditori, developers, designers e creativi.",
 
-        "555":"All’inizio c’erano i fori, dove le idee venivano divulgate e condivise, per crescere e diventare forti e popolari, oggi ci sono le sale conferenze.\nSe è vero che ogni ufficio ha la sua sala conferenze o dovrebbe averla, qui in Farm il convivium è un fasto di un’epoca passata è il cuore pulsante di h-farm, il suo palcoscenico, il trampolino di lancio che da anni promuove idee, persone e gruppi.\n\nE’ il punto di riferimento per accogliere chi vuole parlare e ragionare di innovazione: workshop, conferenze, talk, i nostri demo day, trovano tutti sede qui."]
+        "555":"All’inizio c’erano i fori, dove le idee venivano divulgate e condivise, per crescere e diventare forti e popolari, oggi ci sono le sale conferenze.\nSe è vero che ogni ufficio ha la sua sala conferenze o dovrebbe averla, qui in H-FARM il convivium è un fasto di un’epoca passata, il palcoscenico, il trampolino di lancio, che da anni promuove idee persone e gruppi.\n\nE’ il punto di riferimento per accogliere chi vuole parlare e ragionare di innovazione: workshop, conferenze, talk, i nostri demo day, trovano tutti sede qui."]
     
     var tabID: String = ""
     var imageName: String = ""
@@ -32,7 +32,6 @@ class detailsViewController: UIViewController {
         
         self.setupViews()
         self.loadData()
-        
     }
 
     func setupViews() {
