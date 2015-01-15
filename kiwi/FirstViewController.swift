@@ -8,8 +8,9 @@
 
 import UIKit
 import AVFoundation
+import CoreBluetooth
 
-class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, AVAudioPlayerDelegate, BWWalkthroughViewControllerDelegate {
+class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, AVAudioPlayerDelegate, BWWalkthroughViewControllerDelegate, CBCentralManagerDelegate {
 
     //////////////////////////////////////////////////////
     //MARK: Properties
@@ -34,6 +35,7 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     // class variables
     var starsFound = [String]()
     var audioPlayer: AVAudioPlayer?
+    var bluetoothManager: CBCentralManager?
     
     //////////////////////////////////////////////////////
     //MARK:- View Controller methods
@@ -41,10 +43,13 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNeedsStatusBarAppearanceUpdate()
-
         self.addBeaconsObservers()
-
         self.setupViews()
+
+        // Bluetooth manager
+        let options = ["CBCentralManagerOptionShowPowerAlertKey":"false"]
+        bluetoothManager = CBCentralManager(delegate: self, queue: dispatch_get_main_queue(), options: options)
+        self.centralManagerDidUpdateState(bluetoothManager)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -280,6 +285,39 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     }
     
 }
+
+//////////////////////////////////////////////////////
+//MARK:- LOGIN DELEGATE METHODS
+//////////////////////////////////////////////////////
+
+extension FirstViewController {
+
+    func centralManagerDidUpdateState(central: CBCentralManager!) {
+        var state = ""
+        
+        switch central.state {
+        case .PoweredOff:
+            state = "PoweredOff"
+            let alertNotification = UIAlertController(title: "Attenzione", message: "Per usufruire della migliore esperienza d'uso è necessario accendere il bluetooth.", preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil)
+            alertNotification.addAction(okAction)
+            self.presentViewController(alertNotification, animated: true, completion: nil)
+        case .PoweredOn:
+            state = "Powered On"
+        case .Resetting:
+            state = "Resetting"
+        case .Unauthorized:
+            state = "Unauthorized"
+        case .Unsupported:
+            state = "Unsupported"
+        case .Unknown:
+            state = "Unknown"
+        }
+        
+//        println("The state of bluetooth is \(state)")
+    }
+}
+
 //////////////////////////////////////////////////////
 //MARK:- LOGIN DELEGATE METHODS
 //////////////////////////////////////////////////////
