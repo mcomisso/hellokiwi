@@ -28,15 +28,21 @@ class SecondViewController: UIViewController, BWWalkthroughViewControllerDelegat
     @IBOutlet weak var tableView: UITableView!
 
     let dataSource = [
+        ["id":"333",
+            "name":"Team KiWi - Ex Machina",
+            "image":"kiwiBackground"],
         ["id":"111",
             "name":"LIFE interaction",
             "image":"lifeBackground"],
+        ["id":"555",
+            "name":"Il Convivium",
+            "image":"conviviumBackground"],
+        ["id":"444",
+            "name":"La Serra",
+            "image":"serraBackground"],
         ["id":"222",
             "name":"H-Farm Ventures",
-            "image":"hfarmBackground"],
-        ["id":"333",
-            "name":"Team KiWi - Ex Machina",
-            "image":"kiwiBackground"]
+            "image":"hfarmBackground"]
     ]
     
     override func viewDidLoad() {
