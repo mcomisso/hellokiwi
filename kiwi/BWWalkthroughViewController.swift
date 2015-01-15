@@ -39,7 +39,7 @@ At the moment it's only used to perform custom animations on didScroll.
 }
 
 
-@objc class BWWalkthroughViewController: UIViewController, UIScrollViewDelegate{
+@objc(BWWalkthroughViewController) class BWWalkthroughViewController: UIViewController, UIScrollViewDelegate{
     
     // MARK: - Public properties -
     
