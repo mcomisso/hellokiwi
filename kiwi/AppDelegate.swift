@@ -10,15 +10,13 @@ import UIKit
 import Fabric
 import Crashlytics
 import CoreLocation
-import CoreBluetooth
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate, CBCentralManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
     var locationManager: CLLocationManager?
     var beaconRegion: CLBeaconRegion?
-    var bluetoothManager: CBCentralManager?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -51,10 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 locationManager!.requestAlwaysAuthorization()
             }
         }
-
-        let options = ["CBCentralManagerOptionShowPowerAlertKey":"false"]
-        bluetoothManager = CBCentralManager(delegate: self, queue: dispatch_get_main_queue(), options: options)
-        self.centralManagerDidUpdateState(bluetoothManager)
         
         return true
     }
@@ -66,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-        
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
@@ -135,7 +128,25 @@ extension AppDelegate: CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
-        println("Entered in zone \(region.description), Starting ranging beacons...")
+
+        if (region.identifier == "com.kiwi.beaconRegion") {
+            let notification = UILocalNotification()
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+
+            var alertBody: String?
+            if !userDefaults.boolForKey("firstNotification") {
+                alertBody = "Benvenuto in H-Farm"
+                userDefaults.setBool(true, forKey: "firstNotification")
+                userDefaults.synchronize()
+            } else {
+                alertBody = "Sei entrato in un'altra area del progetto Kiwi"
+            }
+            
+            notification.alertBody = alertBody
+            notification.soundName = UILocalNotificationDefaultSoundName
+            UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+        }
+        println("Entered in zone \(region.description), Start ranging beacons...")
         locationManager!.startRangingBeaconsInRegion(region as CLBeaconRegion)
     }
     
@@ -210,14 +221,6 @@ extension AppDelegate: CLLocationManagerDelegate {
         }
     }
     
-    func sendLocalNotification(alertBody: String) {
-        //Print a local notification UI
-        let notification = UILocalNotification()
-        notification.alertBody = alertBody
-        notification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
-    }
-    
     //ERROR HANDLING
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         println("FAIL \(error.localizedDescription, error.localizedFailureReason)")
@@ -229,29 +232,5 @@ extension AppDelegate: CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, rangingBeaconsDidFailForRegion region: CLBeaconRegion!, withError error: NSError!) {
         println("FAIL \(error.localizedDescription, error.localizedFailureReason, region.description)")
-    }
-}
-
-extension AppDelegate: CBCentralManagerDelegate {
-    
-    func centralManagerDidUpdateState(central: CBCentralManager!) {
-        var state = ""
-
-        switch central.state {
-        case .PoweredOff:
-            state = "PoweredOff"
-        case .PoweredOn:
-            state = "Powered On"
-        case .Resetting:
-            state = "Resetting"
-        case .Unauthorized:
-            state = "Unauthorized"
-        case .Unsupported:
-            state = "Unsupported"
-        case .Unknown:
-            state = "Unknown"
-        }
-
-        println("The state of bluetooth is \(state)")
     }
 }
