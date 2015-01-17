@@ -46,6 +46,8 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
         self.addBeaconsObservers()
         self.setupViews()
 
+        self.loadPointsStatus()
+        
         // Bluetooth manager
         let options = ["CBCentralManagerOptionShowPowerAlertKey":"false"]
         bluetoothManager = CBCentralManager(delegate: self, queue: dispatch_get_main_queue(), options: options)
@@ -102,7 +104,7 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     }
     
     //////////////////////////////////////////////////////
-    //MARK:- Personal Utils
+    //MARK:- Walkthrough
     //////////////////////////////////////////////////////
     func showWalkthrough() {
         let stb = UIStoryboard(name:"WT", bundle: nil)
@@ -161,6 +163,34 @@ class FirstViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     
     func addBeaconsObservers() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "foundPOI:", name: "BMFoundPOI", object: nil)
+    }
+    
+    func loadPointsStatus() {
+        if let starsFound = NSUserDefaults.standardUserDefaults().objectForKey("starsFound") as? [String] {
+
+            for starName in starsFound {
+                self.starsFound.append(starName)
+                switch starName {
+                case "edoardo":
+                    edoStar.highlighted = true
+                case "marco":
+                    marcoStar.highlighted = true
+                case "ennio":
+                    ennioStar.highlighted = true
+                case "serra":
+                    serraStar.highlighted = true
+                case "convivium":
+                    conviviumStar.highlighted = true
+                case "hfarm":
+                    hfarmStar.highlighted = true
+                case "life":
+                    lifeStar.highlighted = true
+                default:
+                    println("Nope")
+                }
+            }
+            self.setCollectedString()
+        }
     }
     
     func foundPOI(notification: NSNotification!) {
