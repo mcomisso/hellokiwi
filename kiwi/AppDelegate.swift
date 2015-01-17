@@ -33,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         //Register for notifications
         if((UIDevice.currentDevice().systemVersion as NSString).floatValue >= 8.0) {
             application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
+        } else {
+            // iOS7 compatibility
+            application.registerForRemoteNotificationTypes(UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound)
         }
         
         //MARK:- CoreLocation
@@ -168,55 +171,58 @@ extension AppDelegate: CLLocationManagerDelegate {
         
         let knownBeacons = beacons.filter{$0.proximity != CLProximity.Unknown}
         
-        if (knownBeacons.count > 0) {
-            closestBeacon = beacons.first as? CLBeacon
-//            println("ClosestBeacon \(closestBeacon?.description)")
-            let closestTupleMajMin = (closestBeacon?.major as Int, closestBeacon?.minor as Int)
-            switch closestTupleMajMin {
-            case (158, 23524):
-                //major:158, minor:23524
-                let alertBody = "Hai trovato Marco"
-//                self.sendLocalNotification(alertBody)
-                NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"marco", "alertBody":alertBody])
-
-            case (150, 47059):
-                //major:150, minor:47059
-                let alertBody = "Hai trovato Edoardo"
-//                self.sendLocalNotification(alertBody)
-                NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"edoardo", "alertBody":alertBody])
+        if (PFUser.currentUser() != nil) {
             
-            case (406, 65259):
-                //major:406, minor:65259
-                let alertBody = "Hai trovato Ennio"
-//                self.sendLocalNotification(alertBody)
-                NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"ennio", "alertBody":alertBody])
-            
-            case (333, 24796), (14, 32380):
-                //major:333, minor:24796
-                let alertBody = "Benvenuto in H-Farm"
-//                self.sendLocalNotification(alertBody)
-                NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"hfarm", "alertBody":alertBody])
-            
-            case (126, 43175):
-                //major:126, minor:43175
-                let alertBody = "Ti va un caffè?"
-//                self.sendLocalNotification(alertBody)
-                NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"serra", "alertBody":alertBody])
-            
-            case (401, 15780):
-                //major:401, minor:15780
-                let alertBody = "Le presentazioni saranno svolte qui"
-//                self.sendLocalNotification(alertBody)
-                NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"convivium", "alertBody":alertBody])
-            
-            case (189, 41487):
-                //major:189, minor:41487
-                let alertBody = "La sede di Life"
-//                self.sendLocalNotification(alertBody)
-                NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"life", "alertBody":alertBody])
-                
-            default:
-                println("Not the correct beacon")
+            if (knownBeacons.count > 0) {
+                closestBeacon = beacons.first as? CLBeacon
+                //println("ClosestBeacon \(closestBeacon?.description)")
+                let closestTupleMajMin = (closestBeacon?.major as Int, closestBeacon?.minor as Int)
+                switch closestTupleMajMin {
+                case (158, 23524):
+                    //major:158, minor:23524
+                    let alertBody = "Hai trovato Marco"
+                    //self.sendLocalNotification(alertBody)
+                    NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"marco", "alertBody":alertBody])
+                    
+                case (150, 47059):
+                    //major:150, minor:47059
+                    let alertBody = "Hai trovato Edoardo"
+                    //                self.sendLocalNotification(alertBody)
+                    NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"edoardo", "alertBody":alertBody])
+                    
+                case (406, 65259):
+                    //major:406, minor:65259
+                    let alertBody = "Hai trovato Ennio"
+                    //                self.sendLocalNotification(alertBody)
+                    NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"ennio", "alertBody":alertBody])
+                    
+                case (333, 24796), (14, 32380):
+                    //major:333, minor:24796
+                    let alertBody = "Benvenuto in H-Farm"
+                    //                self.sendLocalNotification(alertBody)
+                    NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"hfarm", "alertBody":alertBody])
+                    
+                case (126, 43175):
+                    //major:126, minor:43175
+                    let alertBody = "Ti va un caffè?"
+                    //                self.sendLocalNotification(alertBody)
+                    NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"serra", "alertBody":alertBody])
+                    
+                case (401, 15780):
+                    //major:401, minor:15780
+                    let alertBody = "Le presentazioni saranno svolte qui"
+                    //                self.sendLocalNotification(alertBody)
+                    NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"convivium", "alertBody":alertBody])
+                    
+                case (189, 41487):
+                    //major:189, minor:41487
+                    let alertBody = "La sede di Life"
+                    //                self.sendLocalNotification(alertBody)
+                    NSNotificationCenter.defaultCenter().postNotificationName("BMFoundPOI", object: nil, userInfo: ["poi":"life", "alertBody":alertBody])
+                    
+                default:
+                    println("Not the correct beacon")
+                }
             }
         }
     }
