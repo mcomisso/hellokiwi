@@ -11,7 +11,7 @@ PODS:
     - Parse (~> 1.6)
     - ParseFacebookUtils (~> 1.6)
   - Reveal-iOS-SDK (1.0.7)
-  - SCLAlertView-Objective-C (0.3.9)
+  - SCLAlertView-Objective-C (0.4.1)
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
@@ -31,7 +31,7 @@ SPEC CHECKSUMS:
   ParseFacebookUtils: 7659dcda0fa59f67234ab7ba5a82a9b05073c59a
   ParseUI: 8201eccd0e68eaa000b58253c4286e92de0ce5c5
   Reveal-iOS-SDK: 7ee5e9b37ef13dcd93ae1736c1b72c7c650da3e3
-  SCLAlertView-Objective-C: 02360e2bec385e6195a514abc3d8b364ee2cc1e0
+  SCLAlertView-Objective-C: 22c1f0fd59db99d121d746fd0950867b38853fc5
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
 
 COCOAPODS: 0.36.0.beta.1
