@@ -5,7 +5,7 @@ platform :ios, '7.1'
 ## TARGET KIWI ##
 #################
 target 'kiwi' do
-  pod 'Reveal-iOS-SDK', :configurations => ['Debug']
+#  pod 'Reveal-iOS-SDK', :configurations => ['Debug']
 
   pod 'Parse'
   pod 'ParseUI'
