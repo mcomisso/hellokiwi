@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let applicationID = "TYLfPuBMMfuiFBseC5JsjfsFhELw1jCAnb20rESK"
-        let clientKey = "E8GnhIGzYnHbXYyFjy1MgHAJ5O3wIADhtdJKmkdY"
+        let applicationID = "appId"
+        let clientKey = "clientKey"
         
         Fabric.with([Crashlytics()])
 
